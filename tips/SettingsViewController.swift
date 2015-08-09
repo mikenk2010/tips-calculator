@@ -29,16 +29,19 @@ class SettingsViewController: UIViewController {
     
     
     @IBAction func onEditDefaultTip(sender: UISegmentedControl) {
-        let defaultSelectTips = NSUserDefaults.standardUserDefaults()
+        var defaultSelectTips = NSUserDefaults.standardUserDefaults()
         defaultSelectTips.setInteger(sender.selectedSegmentIndex, forKey: "select_default_tip_key")
         var defaultTipKey:NSInteger = defaultSelectTips.integerForKey("select_default_tip_key")
         println("Your default select key: \(defaultTipKey)")
+        
+        // Save
+        defaultSelectTips.synchronize()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true);
         
-        let defaultSelectTips = NSUserDefaults.standardUserDefaults()
+        var defaultSelectTips = NSUserDefaults.standardUserDefaults()
         var defaultTipKey:NSInteger = defaultSelectTips.integerForKey("select_default_tip_key")
         println("Your default select key: \(defaultTipKey)")
     

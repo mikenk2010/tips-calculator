@@ -71,7 +71,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true);
         
-        let defaultSelectTips = NSUserDefaults.standardUserDefaults()
+        var defaultSelectTips = NSUserDefaults.standardUserDefaults()
         var defaultTipKey = defaultSelectTips.integerForKey("select_default_tip_key")
         println("You select key: \(defaultTipKey)")
         
