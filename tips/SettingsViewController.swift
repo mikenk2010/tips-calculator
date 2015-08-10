@@ -48,6 +48,13 @@ class SettingsViewController: UIViewController {
         defaultTipControl.selectedSegmentIndex = defaultTipKey
       
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        var defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(defaultTipControl.selectedSegmentIndex, forKey: "select_default_tip_key")
+        defaults.synchronize()
+    }
 
 
 }
