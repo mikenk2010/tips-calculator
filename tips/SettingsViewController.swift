@@ -10,6 +10,10 @@ import UIKit
 
 class SettingsViewController: UIViewController {
     
+    
+    @IBOutlet weak var animationView: UIView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -46,7 +50,6 @@ class SettingsViewController: UIViewController {
         println("Your default select key: \(defaultTipKey)")
     
         defaultTipControl.selectedSegmentIndex = defaultTipKey
-      
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -55,6 +58,5 @@ class SettingsViewController: UIViewController {
         defaults.setInteger(defaultTipControl.selectedSegmentIndex, forKey: "select_default_tip_key")
         defaults.synchronize()
     }
-
-
+    
 }
